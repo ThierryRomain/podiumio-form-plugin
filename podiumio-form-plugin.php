@@ -41,7 +41,7 @@ if ( ! defined( 'PODIO_FORM_URL' ) ) {
  * Include obligatory files.
  */
  add_action( 'init', 'register_form_post_type' );
- public function register_form_post_type() {
+ function register_form_post_type() {
     $labels = array(
         'name' => _x( 'Frontend Form', 'Post type general name', 'podio' ),
     );
