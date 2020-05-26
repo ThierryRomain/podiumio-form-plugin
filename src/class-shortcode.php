@@ -85,8 +85,8 @@ class Shortcode {
 	 * @return void
 	 */
 	private function output_acf_form( $args = [] ) {
-		// Get the current step we are at in the form.
-		$requested_step    = $this->get_request_step();
+		// // Get the current step we are at in the form.
+		// $requested_step    = $this->get_request_step();
 
 		$args = wp_parse_args(
 			$args,

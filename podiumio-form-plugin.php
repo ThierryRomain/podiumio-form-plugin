@@ -50,13 +50,30 @@ if ( ! defined( 'PODIO_FORM_URL' ) ) {
         'show_ui' => true,
         'public' => true,
         'labels' => $labels,
-        'supports' => array('title'),
+				'show_in_rest' => true,
+        'supports' => array('title','editor'),
         'has_archive' => false
     );
 
     register_post_type('frontend_form', $args);
 }
 
+/*
+ * Set Page templates for CPT "help_lessions"
+ */
+add_filter( 'template_include', 'my_plugin_templates' );
+function my_plugin_templates( $template ) {
+    $post_types = array( 'frontend_form' );
+    if ( is_post_type_archive( $post_types ) && file_exists( plugin_dir_path(__FILE__) . 'templates/archive_help_lessions.php' ) ){
+        $template = plugin_dir_path(__FILE__) . 'templates/archive_help_lessions.php';
+    }
+
+    if ( is_singular( 'frontend_form' ) && file_exists( plugin_dir_path(__FILE__) . 'templates/single_frontend_form.php' ) ){
+			  $template = plugin_dir_path(__FILE__) . 'templates/single_frontend_form.php';
+    }
+
+    return $template;
+}
 
 /**
  * Include obligatory files.
