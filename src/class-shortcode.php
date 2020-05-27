@@ -40,7 +40,6 @@ class Shortcode {
 	public function __construct() {
 		$this->id          = 'podio-frontend-form';
 		$this->post_type   = 'frontend_form';
-		// $this->metabox_ids = ['group_5beab4a31f3ff', 'group_5beab4d56e9f5', 'group_5beab6515ba78', 'group_5beae8ce395d6' ];
 		$this->hooks();
 	}
 
@@ -98,8 +97,6 @@ class Shortcode {
 	 * @return void
 	 */
 	private function output_acf_form( $args = [], $render ) {
-		// // Get the current step we are at in the form.
-		// $requested_step    = $this->get_request_step();
 
 		$args = wp_parse_args(
 			$args,
