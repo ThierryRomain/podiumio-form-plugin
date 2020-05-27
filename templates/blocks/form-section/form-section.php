@@ -12,7 +12,7 @@ $img = get_field('img');
     <?php else: ?>
         <div class="os-form-section" style="margin-top:10px;">
     <?php endif; ?>
-        <div class="os-form-section-question-wrapper">
+        <div class="os-form-section-question-wrapper" id="<?php echo $block['id'] ?>">
             <i id="form-section-warning" class="fas fa-exclamation-circle" style="color:#fa9833;margin-right:10px;display:none;"></i>
             <i id="form-section-good" class="fas fa-check-circle" style="color:#669efc;margin-right:10px;display:none;"></i>
             <h4><?php echo $title ?></h4>
