@@ -14,9 +14,8 @@
     position: relative;
     border-radius: 5px;
     padding: 10px 40px 10px 20px;
-    -webkit-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.15);
-    -moz-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.15);
-    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.15);
+    background-color:#669efc;
+    color:white;
 }
 
 .os-form-section-question-wrapper > h4{

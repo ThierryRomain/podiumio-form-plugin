@@ -110,13 +110,13 @@ function xx__update_custom_roles() {
 add_action( 'init', 'xx__update_custom_roles' );
 
 /**
- *  Restrict a certain user role to certain pages. 
+ *  Restrict a certain user role to certain pages.
  */
 function os_custom_capabilities() {
     $user = wp_get_current_user();
     $role = 'custom_role';
     echo "salktu";
-    
+
 
     if (in_array($role, $user->roles)) {
         print_r($user->roles);
@@ -140,7 +140,7 @@ add_action('after_setup_theme', 'remove_admin_bar');
  */
 
 //Here's my custom CSS that removes the back link in a function
-function my_login_page_remove_back_to_link() { 
+function my_login_page_remove_back_to_link() {
     $custom_logo_id = get_theme_mod( 'custom_logo' );
     $imageUrl = wp_get_attachment_image_src( $custom_logo_id , 'full' )[0];
     ?>
