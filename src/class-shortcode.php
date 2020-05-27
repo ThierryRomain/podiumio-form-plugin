@@ -59,7 +59,7 @@ class Shortcode {
 		$a = shortcode_atts( array(
 			'render' => "",
 		), $atts );
-		
+
 		$blockToRender = explode(',',$a['render']);
 		$render = [];
 		foreach($blockToRender as $block){
@@ -102,11 +102,11 @@ class Shortcode {
 		 * depending on the current form step we are at.
 		 * This is done via the "field_groups" parameter below.
 		 */
-
-		print_r($render);
+		 $this_post_id = get_the_ID();
 		acf_form(
 			[
 				'id' 				=> $this->id,
+				'post_id' 			=> $this_post_id,
 				'new_post'			=> [
 					'post_type'		=> $args['post_type'],
 					'post_status'	=> $args['post_status'],

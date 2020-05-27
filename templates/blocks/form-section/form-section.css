@@ -1,9 +1,12 @@
 .os-form-section{
     width:100%;
     position:relative;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    cursor: pointer;
+    width: 100%;
+    position: relative;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin-top: 2px;
+    background-color: #fafafb;
 }
 
 .os-form-section-title{
@@ -13,9 +16,9 @@
 .os-form-section-question-wrapper {
     position: relative;
     border-radius: 5px;
-    padding: 10px 40px 10px 20px;
-    background-color:#669efc;
-    color:white;
+    padding: 13px 40px 10px 10px;
+    color:black;
+    cursor: pointer;
 }
 
 .os-form-section-question-wrapper > h4{
@@ -25,6 +28,7 @@
     margin-right:20px;
     margin-top:0px;
     margin-bottom:0px;
+    vertical-align: bottom;
 }
 
 .os-form-section-question-wrapper > h4 > p{
@@ -56,11 +60,8 @@
     width:100% !important;
     overflow:hidden;
     display:none;
-    border-radius: 5px;
     padding: 20px 40px 20px 20px;
-    -webkit-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.15);
-    -moz-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.15);
-    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.15);
+    border-top:#ebebeb solid 1px;
 }
 
 .os-form-section-button-wrapper{

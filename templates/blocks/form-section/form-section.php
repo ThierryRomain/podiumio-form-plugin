@@ -9,6 +9,7 @@ $img = get_field('img');
 <div class="arrive-on-scroll">
     <div class="os-form-section" style="margin-top:10px;">
         <div class="os-form-section-question-wrapper">
+            <i class="fas fa-exclamation-circle" style="color:#fa9833;margin-right:10px;"></i>
             <h4><?php echo $title ?></h4>
             <div class="os-form-section-arrow-wrapper">
                 <i class="fas fa-angle-down os-form-section-arrow"></i>
@@ -23,7 +24,11 @@ $img = get_field('img');
                 <img src="<?php echo $img; ?>" class="os-form-section-preview" />
             <?php endif; ?>
             <div style="margin-top:20px;margin-bottom:20px;"><?php echo $preForm ?></div>
-            <?php echo do_shortcode($shortcode);  ?>
+            <?php
+            if(!is_admin()){                
+                echo do_shortcode($shortcode);
+            }
+            ?>
             <div style="margin-top:20px;margin-bottom:20px;"><?php echo $postForm ?></div>
             </div>
     </div>
