@@ -38,6 +38,7 @@
 		    -webkit-align-items: stretch;
 		    -ms-flex-align: stretch;
 		    align-items: stretch;
+			min-height: 60vh;
 	    }
 
 		@media screen and (max-width: 867px) {
