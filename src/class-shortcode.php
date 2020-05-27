@@ -74,9 +74,6 @@ class Shortcode {
 			array_push($render,$block);
 		}
 
-
-		print_r($render);
-
 		if ( ! function_exists( 'acf_form' ) ) {
 			return;
 		}
