@@ -27,14 +27,6 @@ class Shortcode {
 	private $post_type;
 
 	/**
-	 * List of ACF fields groups we want to display as steps.
-	 * Each array item is an array of metaboxes IDs to display in a separate step.
-	 *
-	 * @var array
-	 */
-	private $metabox_ids;
-
-	/**
 	 * The constructor saves the necessary properties that we just described above.
 	 */
 	public function __construct() {
@@ -74,9 +66,6 @@ class Shortcode {
 			array_push($render,$block);
 		}
 
-
-		print_r($render);
-
 		if ( ! function_exists( 'acf_form' ) ) {
 			return;
 		}
@@ -113,6 +102,8 @@ class Shortcode {
 		 * depending on the current form step we are at.
 		 * This is done via the "field_groups" parameter below.
 		 */
+
+		print_r($render);
 		acf_form(
 			[
 				'id' 				=> $this->id,
