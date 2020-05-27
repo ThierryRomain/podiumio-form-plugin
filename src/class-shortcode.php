@@ -40,7 +40,6 @@ class Shortcode {
 	public function __construct() {
 		$this->id          = 'podio-frontend-form';
 		$this->post_type   = 'frontend_form';
-		$this->metabox_ids = ['group_5beab4a31f3ff', 'group_5beab4d56e9f5', 'group_5beab6515ba78', 'group_5beae8ce395d6' ];
 		$this->hooks();
 	}
 
@@ -62,8 +61,21 @@ class Shortcode {
 	 *
 	 * @return string The content of our shortcode.
 	 */
-	public function output_shortcode() {
+	public function output_shortcode($atts) {
 		ob_start();
+
+		$a = shortcode_atts( array(
+			'render' => "",
+		), $atts );
+		
+		$blockToRender = explode(',',$a['render']);
+		$render = [];
+		foreach($blockToRender as $block){
+			array_push($render,$block);
+		}
+
+
+		print_r($render);
 
 		if ( ! function_exists( 'acf_form' ) ) {
 			return;
@@ -71,7 +83,7 @@ class Shortcode {
 
 		$this->output_acf_form( [
 			'post_type' => $this->post_type,
-		] );
+		] , $render);
 
 		return ob_get_clean();
 	}
@@ -84,9 +96,7 @@ class Shortcode {
 	 * @param array $args
 	 * @return void
 	 */
-	private function output_acf_form( $args = [] ) {
-		// // Get the current step we are at in the form.
-		// $requested_step    = $this->get_request_step();
+	private function output_acf_form( $args = [], $render ) {
 
 		$args = wp_parse_args(
 			$args,
@@ -110,7 +120,7 @@ class Shortcode {
 					'post_type'		=> $args['post_type'],
 					'post_status'	=> $args['post_status'],
 				],
-				'field_groups'      => $this->metabox_ids,
+				'field_groups'      => $render,
 			]
 		);
 	}

@@ -96,3 +96,70 @@ require_once PODIO_FORM_DIR . '/src/class-shortcode.php';
  * Fire the darn thing!
  */
 new PODIO_user_frontend_form\Shortcode();
+
+
+/**
+ *  Add a custom client role
+ */
+function xx__update_custom_roles() {
+    if ( get_option( 'custom_roles_version' ) < 1 ) {
+        add_role( 'custom_role', 'Custom Client', array( 'read' => true, 'level_0' => true ) );
+        update_option( 'custom_roles_version', 1 );
+    }
+}
+add_action( 'init', 'xx__update_custom_roles' );
+
+/**
+ *  Restrict a certain user role to certain pages. 
+ */
+function os_custom_capabilities() {
+    $user = wp_get_current_user();
+    $role = 'custom_role';
+    echo "salktu";
+    
+
+    if (in_array($role, $user->roles)) {
+        print_r($user->roles);
+        wp_redirect('http://localhost:223/Clients/Podium/podiumio-a/frontend_form/this-is-the-one-form/');
+    }
+}
+add_action( 'init', 'os_custom_capabilities' );
+
+/**
+ * Remove admin bar from front end
+ */
+function remove_admin_bar() {
+    if (current_user_can('custom_role') && !is_admin()) {
+        show_admin_bar(false);
+    }
+}
+add_action('after_setup_theme', 'remove_admin_bar');
+
+/**
+ *  Add styling to the login page
+ */
+
+//Here's my custom CSS that removes the back link in a function
+function my_login_page_remove_back_to_link() { 
+    $custom_logo_id = get_theme_mod( 'custom_logo' );
+    $imageUrl = wp_get_attachment_image_src( $custom_logo_id , 'full' )[0];
+    ?>
+
+    <style type="text/css">
+       .login h1 a {
+            background-image: url(<?php echo $imageUrl ?>) !important;
+       }
+
+       .login #login_error, .login .message, .login .success {
+           border-left: 4px solid <?php echo esc_attr(get_theme_mod('primary_theme_color'))?> !important;
+       }
+
+       .wp-core-ui .button-primary{
+           background: <?php echo esc_attr(get_theme_mod('primary_theme_color'))?> !important;
+           border-color: <?php echo esc_attr(get_theme_mod('primary_theme_color'))?> !important;
+       }
+    </style>
+<?php }
+
+//This loads the function above on the login page
+add_action( 'login_enqueue_scripts', 'my_login_page_remove_back_to_link' );
