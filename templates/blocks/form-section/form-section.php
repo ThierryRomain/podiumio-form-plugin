@@ -7,9 +7,14 @@ $img = get_field('img');
 ?>
 
 <div class="arrive-on-scroll">
-    <div class="os-form-section" style="margin-top:10px;">
+    <?php if(get_field('required')): ?>
+        <div class="os-form-section important-section" style="margin-top:10px;">
+    <?php else: ?>
+        <div class="os-form-section" style="margin-top:10px;">
+    <?php endif; ?>
         <div class="os-form-section-question-wrapper">
-            <i class="fas fa-exclamation-circle" style="color:#fa9833;margin-right:10px;"></i>
+            <i id="form-section-warning" class="fas fa-exclamation-circle" style="color:#fa9833;margin-right:10px;display:none;"></i>
+            <i id="form-section-good" class="fas fa-check-circle" style="color:#669efc;margin-right:10px;display:none;"></i>
             <h4><?php echo $title ?></h4>
             <div class="os-form-section-arrow-wrapper">
                 <i class="fas fa-angle-down os-form-section-arrow"></i>
@@ -25,7 +30,7 @@ $img = get_field('img');
             <?php endif; ?>
             <div style="margin-top:20px;margin-bottom:20px;"><?php echo $preForm ?></div>
             <?php
-            if(!is_admin()){                
+            if(!is_admin()){
                 echo do_shortcode($shortcode);
             }
             ?>
