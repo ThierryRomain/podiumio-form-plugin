@@ -39,7 +39,6 @@ $( document ).ready(function() {
     let tab_to_open;
     $(".os-form-section").each(function(){
         let validation_field = $(this).find(".validation_field").find("input:text");
-        console.log(validation_field);
         if(validation_field.val() == "updated"){
             $(this).addClass("good");
             $(this).removeClass("warning");
@@ -69,4 +68,27 @@ $( document ).ready(function() {
         let acfValidationField = acf.getField(validationFieldId);
         acfValidationField.val("updated");
     });
+
+    //send email letting us know the form is completed
+    $('#frontend_form_finish').submit(send_filled_form_email);
+    function send_filled_form_email() {
+        var comments = document.getElementById("comments").value;
+        $.ajax({
+            type: "POST",
+            url: jsObj.ajaxurl,
+            data: {
+                action : 'frontend_form_filled_submission',
+                comments : comments
+            },
+            success: function(html) {
+                $('#frontend_form_filled_feedback').text(html);
+                $('#frontend_form_filled_feedback').show(200);
+            },
+            error: function(html){
+                $('#frontend_form_filled_feedback').text(html);
+                $('#frontend_form_filled_feedback').show(200);
+            }
+        });
+        return false;
+    }
 });
