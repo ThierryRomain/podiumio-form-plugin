@@ -14,8 +14,6 @@ $( document ).ready(function() {
 
     $("a.frontend-form-menu-link").click(function(){
         openFormSection($("#"+$(this).data('target')));
-        // let question_wrapper = $("#"+$(this).data('target'));
-        // question_wrapper.addClass('active');
     });
 
     function openFormSection(elem){
@@ -37,6 +35,8 @@ $( document ).ready(function() {
 
 
     //check if form has been modified
+    let tab_is_open = false;
+    let tab_to_open;
     $(".os-form-section").each(function(){
         let validation_field = $(this).find(".validation_field").find("input:text");
         if(validation_field.val() == "updated"){
@@ -45,12 +45,19 @@ $( document ).ready(function() {
             $(this).find("#form-section-warning").hide();
             $(this).find("#form-section-good").show();
         }else{
+            if(!tab_is_open){
+                tab_is_open = true;
+                tab_to_open = $(this).find('.os-form-section-question-wrapper');
+            }
             $(this).removeClass("good");
             $(this).addClass("warning");
             $(this).find("#form-section-warning").show();
             $(this).find("#form-section-good").hide();
         }
     });
+    //open tab on load
+    openFormSection(tab_to_open);
+
 
     //toggle validation field if section is submitted on front end
     $(".acf-form").submit(function(e){
