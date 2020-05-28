@@ -1,4 +1,5 @@
 $( document ).ready(function() {
+    acfRepeaterRowColors();
     $(".os-form-section-question-wrapper").each(function(){
             $(this).click(function(){
                 openFormSection($(this));
@@ -39,6 +40,7 @@ $( document ).ready(function() {
     let tab_to_open;
     $(".os-form-section").each(function(){
         let validation_field = $(this).find(".validation_field").find("input:text");
+        console.log(validation_field);
         if(validation_field.val() == "updated"){
             $(this).addClass("good");
             $(this).removeClass("warning");
@@ -64,10 +66,23 @@ $( document ).ready(function() {
     //toggle validation field if section is submitted on front end
     $(".acf-form").submit(function(e){
         let validationField = $(this).find(".validation_field");
-        let validationFieldId = validationField.data('key');
-        let acfValidationField = acf.getField(validationFieldId);
-        acfValidationField.val("updated");
+        if(validationField.length !=0){
+            let validationFieldId = validationField.data('key');
+            let acfValidationField = acf.getField(validationFieldId);
+            acfValidationField.val("updated");
+        }
     });
+
+   
+    /**
+     *  Changes the color of all repeaters acf field depending on if the element is an odd or even number
+     */
+    function acfRepeaterRowColors(){
+        $('.acf-row-handle span:odd').each(function(){
+            $(this).parent().css('background-color','#cccccc');
+            $(this).parent().parent().find('.acf-row-handle.remove').css('background-color','#cccccc');
+        });
+    }
 
     //send email letting us know the form is completed
     $('#frontend_form_finish').submit(send_filled_form_email);

@@ -38,7 +38,81 @@
 		    -ms-flex-align: stretch;
 		    align-items: stretch;
 			min-height: 60vh;
-	    }
+		}
+		
+		.acf-actions .acf-button.button-primary {
+			border: 2px solid #3797a4;
+			background-color: transparent;
+			color: #3797a4;
+			border-radius: 5px;
+			padding-left: 10px;
+			padding-right: 10px;
+			padding-top: 4px;
+			font-size: 15px;
+		}
+
+		.acf-actions .acf-button.button-primary:hover {
+			background-color: #3797a4;
+			color: #fff;
+		}
+
+		.wp-picker-container button.button.wp-color-result {
+			border: 1px solid #555;
+		}
+		.wp-picker-container.wp-picker-active .wp-picker-input-wrap .button.button-small.wp-picker-clear{
+			padding-bottom: 8px;
+			margin-left: 7px;
+		}
+		
+
+		.acf-form-submit .acf-button.button.button-primary.button-large{
+			border: 2px solid #fdaa40;
+			background-color: #fdaa40;
+			border-radius: 5px;
+			color: #fff;
+			padding-left: 10px;
+			padding-right: 10px;
+			font-size: 15px;
+			cursor: pointer;
+		}
+
+		.acf-tab-wrap .acf-hl.acf-tab-group li .acf-tab-button {
+			font-size: 16px;
+			border-top-left-radius: 3px;
+			border-top-right-radius: 3px;
+		}
+
+		.acf-tab-wrap .acf-hl.acf-tab-group li.active .acf-tab-button {
+			font-weight: bold;
+		}
+
+		.acf-label {
+			font-size: 16px;
+		}
+
+		.acf-th {
+			font-size: 16px;
+		}
+
+		.acf-table .ui-sortable .acf-field.acf-field-text .acf-label label {
+			font-size: 14px;
+		}
+
+		.acf-accordion-content .acf-fields .acf-field .acf-label label {
+			font-size: 14px;
+		}
+
+		.acf-label.acf-accordion-title label {
+			font-size: 16px;
+		}
+
+		.link-wrap {
+			font-size: 15px;
+		}
+
+		.validation_field{
+			visibility: hidden;
+		}
 
 		@media screen and (max-width: 867px) {
 			.os-frontend-form-flex-container{

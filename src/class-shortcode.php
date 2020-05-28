@@ -27,14 +27,6 @@ class Shortcode {
 	private $post_type;
 
 	/**
-	 * List of ACF fields groups we want to display as steps.
-	 * Each array item is an array of metaboxes IDs to display in a separate step.
-	 *
-	 * @var array
-	 */
-	private $metabox_ids;
-
-	/**
 	 * The constructor saves the necessary properties that we just described above.
 	 */
 	public function __construct() {
