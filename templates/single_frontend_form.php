@@ -38,6 +38,7 @@
 		    -webkit-align-items: stretch;
 		    -ms-flex-align: stretch;
 		    align-items: stretch;
+			min-height: 60vh;
 	    }
 
 		@media screen and (max-width: 867px) {
@@ -71,7 +72,7 @@
 				</div>
 				<div class="os-frontend-form-flex-container">
 					<div class="os-form-section-sidebar">
-						<?php the_field('sidebar_content'); ?>
+						<div id="frontend-form-menu"></div>
 					</div>
 					<div style="width:100%">
 						<?php the_content(); ?>

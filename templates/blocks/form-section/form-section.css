@@ -77,3 +77,13 @@
     margin-top:20px;
     margin-bottom:20px;
 }
+
+.important-section{
+    border: 2px solid transparent;
+}
+.important-section.warning{
+    border-color:#fa9833;
+}
+.important-section.good{
+    border-color:#669efc;
+}
