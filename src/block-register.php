@@ -1,5 +1,9 @@
 <?php
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
 function podiumio_front_end_form_plugin_block_categories( $categories, $post ) {
     return array_merge(
         $categories,

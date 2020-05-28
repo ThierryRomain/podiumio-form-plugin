@@ -9,7 +9,6 @@
 <?php
   	acf_form_head();
   	wp_head();
-	wp_enqueue_script( 'frontend-form-js', PODIO_RELATIVE_PLUGIN_DIR  . '/' . PODIO_FORM_NAME . '/src/js/frontend-form.js', array('jquery'), '1.0' );
 ?>
 	<style>
 		.os-form-section-sidebar{
