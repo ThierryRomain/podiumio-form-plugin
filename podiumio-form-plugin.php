@@ -37,6 +37,16 @@ if ( ! defined( 'PODIO_FORM_URL' ) ) {
 	define( 'PODIO_FORM_URL', WP_PLUGIN_URL . '/' . PODIO_FORM_NAME );
 }
 
+if ( ! defined('PODIO_RELATIVE_PLUGIN_DIR')){
+	define( 'PODIO_RELATIVE_PLUGIN_DIR', str_replace( get_option( 'siteurl' ) , "" , WP_PLUGIN_URL ) );
+}
+
+add_filter( 'private_title_format', 'myprefix_private_title_format' );
+add_filter( 'protected_title_format', 'myprefix_private_title_format' );
+function myprefix_private_title_format( $format ) {
+    return '%s';
+}
+
 /**
  * Include obligatory files.
  */
@@ -78,6 +88,7 @@ function my_plugin_templates( $template ) {
 /**
  * Include obligatory files.
  */
+require_once PODIO_FORM_DIR . '/src/block-register.php';
 require_once PODIO_FORM_DIR . '/src/class-utils.php';
 require_once PODIO_FORM_DIR . '/src/class-shortcode.php';
 
