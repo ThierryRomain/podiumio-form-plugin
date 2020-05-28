@@ -1,5 +1,9 @@
 <?php
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
 function podiumio_front_end_form_plugin_block_categories( $categories, $post ) {
     return array_merge(
         $categories,
@@ -24,11 +28,10 @@ function register_front_end_form_plugin_acf_block_types() {
       'render_template'   =>  PODIO_FORM_DIR . '/templates/blocks/form-section/form-section.php',
       'category'          => 'admin-blocks',
       'icon'              => 'list-view',
-      'keywords'          => array( 'map', 'block' ),
+      'keywords'          => array( 'frontend', 'form', 'block' ),
       'mode' => 'edit',
       'enqueue_style' =>   PODIO_RELATIVE_PLUGIN_DIR  . '/' . PODIO_FORM_NAME . '/templates/blocks/form-section/form-section.css',
   ));
-
 }
 
 // Check if function exists and hook into setup.
