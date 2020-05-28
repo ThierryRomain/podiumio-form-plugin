@@ -39,12 +39,13 @@ $( document ).ready(function() {
     let tab_to_open;
     $(".os-form-section").each(function(){
         let validation_field = $(this).find(".validation_field").find("input:text");
+        console.log(validation_field);
         if(validation_field.val() == "updated"){
             $(this).addClass("good");
             $(this).removeClass("warning");
             $(this).find("#form-section-warning").hide();
             $(this).find("#form-section-good").show();
-        }else{
+        }else if(validation_field.length != 0){
             if(!tab_is_open){
                 tab_is_open = true;
                 tab_to_open = $(this).find('.os-form-section-question-wrapper');
@@ -56,7 +57,9 @@ $( document ).ready(function() {
         }
     });
     //open tab on load
-    openFormSection(tab_to_open);
+    if(tab_is_open){
+        openFormSection(tab_to_open);
+    }
 
 
     //toggle validation field if section is submitted on front end
