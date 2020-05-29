@@ -54,6 +54,9 @@ add_action('wp_ajax_frontend_form_filled_submission', 'frontend_form_filled_subm
 add_action('wp_ajax_nopriv_frontend_form_filled_submission', 'frontend_form_filled_submission_callback');
 function frontend_form_filled_submission_callback(){
     $html = $_POST['comments'];
+	if($html == "" || $html == " "){
+		$html = "No comments";
+	}
     $headers = array('Content-Type: text/html; charset=UTF-8');
     $mail_success = wp_mail("thierryr@orphic.ca", "Front end content form filled for " . get_site_url(), $html, $headers);
 
