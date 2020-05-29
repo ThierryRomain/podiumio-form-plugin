@@ -116,6 +116,11 @@
 			visibility: hidden;
 		}
 
+		#frontend-form-menu ul{
+			list-style-type: none;
+			padding-left:10px;
+		}
+
 		@media screen and (max-width: 867px) {
 			.os-frontend-form-flex-container{
 				-webkit-flex-wrap: wrap;
@@ -147,6 +152,7 @@
 				</div>
 				<div class="os-frontend-form-flex-container">
 					<div class="os-form-section-sidebar">
+						<h3>Form navigation</h3>
 						<div id="frontend-form-menu"></div>
 					</div>
 					<div style="width:100%">
