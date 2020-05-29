@@ -40,7 +40,6 @@ $( document ).ready(function() {
     let tab_to_open;
     $(".os-form-section").each(function(){
         let validation_field = $(this).find(".validation_field").find("input:text");
-        console.log(validation_field);
         if(validation_field.val() == "updated"){
             $(this).addClass("good");
             $(this).removeClass("warning");
@@ -73,7 +72,7 @@ $( document ).ready(function() {
         }
     });
 
-   
+
     /**
      *  Changes the color of all repeaters acf field depending on if the element is an odd or even number
      */
@@ -96,11 +95,11 @@ $( document ).ready(function() {
                 comments : comments
             },
             success: function(html) {
-                $('#frontend_form_filled_feedback').text(html);
+                $('#frontend_form_filled_feedback').html(html);
                 $('#frontend_form_filled_feedback').show(200);
             },
             error: function(html){
-                $('#frontend_form_filled_feedback').text(html);
+                $('#frontend_form_filled_feedback').html(html);
                 $('#frontend_form_filled_feedback').show(200);
             }
         });

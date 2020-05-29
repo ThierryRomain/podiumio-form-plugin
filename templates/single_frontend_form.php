@@ -1,3 +1,6 @@
+<?php
+  	acf_form_head();
+?>
 <!-- start header -->
 <!doctype html>
 <html <?php language_attributes(); ?> data-wf-page="5eb5a57b04449bcfb2df3441" >
@@ -7,7 +10,6 @@
 	<link rel="profile" href="https://gmpg.org/xfn/11">
 	<?php echo get_theme_mod('typoScript') ?>
 <?php
-  	acf_form_head();
   	wp_head();
 ?>
 	<style>
@@ -39,7 +41,7 @@
 		    align-items: stretch;
 			min-height: 60vh;
 		}
-		
+
 		.acf-actions .acf-button.button-primary {
 			border: 2px solid #3797a4;
 			background-color: transparent;
@@ -63,7 +65,7 @@
 			padding-bottom: 8px;
 			margin-left: 7px;
 		}
-		
+
 
 		.acf-form-submit .acf-button.button.button-primary.button-large{
 			border: 2px solid #fdaa40;

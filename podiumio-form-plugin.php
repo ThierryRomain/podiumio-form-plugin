@@ -58,9 +58,9 @@ function frontend_form_filled_submission_callback(){
     $mail_success = wp_mail("thierryr@orphic.ca", "Front end content form filled for " . get_site_url(), $html, $headers);
 
 	if($mail_success){
-		echo "Email was sent successfully. We will get back to you when your website is live.";
+		echo "<div style=\"margin-top:30px;padding:5px;background-color:#28ad4b;color:white;\">Email was sent successfully. We will get back to you when your website is live.</div>";
 	}else{
-		echo "An error occured while sending your email. Please contact us through other channels to let us know that your website is ready to go live. Sorry for the inconvenience.";
+		echo "<div style=\"margin-top:30px;padding:5px;background-color:#d92027;color:white;\">An error occured while sending your email. Please contact us through other channels to let us know that your website is ready to go live. Sorry for the inconvenience.</div>";
 	}
 	wp_die();
 }
