@@ -7,11 +7,12 @@ $( document ).ready(function() {
     });
 
     //build menu
-    $("#frontend-form-menu").append("<ul>");
+    let to_append = "<ul>";
     $(".os-form-section-question-wrapper").each(function(){
-        $("#frontend-form-menu").append("<li><a href='javascript:void(0);' class='frontend-form-menu-link' data-target='"+ $(this).attr("id") +"'>"+ $(this).find("h4").text() +"</a></li>");
+        to_append += "<li><a href='javascript:void(0);' class='frontend-form-menu-link' data-target='"+ $(this).attr("id") +"'>"+ $(this).find("h4").text() +"</a></li>";
     });
-    $("#frontend-form-menu").append("</ul>");
+    to_append += "</ul>";
+    $("#frontend-form-menu").append(to_append);
 
     $("a.frontend-form-menu-link").click(function(){
         openFormSection($("#"+$(this).data('target')));
