@@ -7,16 +7,16 @@ $( document ).ready(function() {
     });
 
     //build menu
-    let to_append = "<ul>";
-    $(".os-form-section-question-wrapper").each(function(){
-        to_append += "<li><a href='javascript:void(0);' class='frontend-form-menu-link' data-target='"+ $(this).attr("id") +"'>"+ $(this).find("h4").text() +"</a></li>";
-    });
-    to_append += "</ul>";
-    $("#frontend-form-menu").append(to_append);
-
-    $("a.frontend-form-menu-link").click(function(){
-        openFormSection($("#"+$(this).data('target')));
-    });
+    // let to_append = "<ul>";
+    // $(".os-form-section-question-wrapper").each(function(){
+    //     to_append += "<li><a href='javascript:void(0);' class='frontend-form-menu-link' data-target='"+ $(this).attr("id") +"'>"+ $(this).find("h4").text() +"</a></li>";
+    // });
+    // to_append += "</ul>";
+    // $("#frontend-form-menu").append(to_append);
+    //
+    // $("a.frontend-form-menu-link").click(function(){
+    //     openFormSection($("#"+$(this).data('target')));
+    // });
 
     function openFormSection(elem){
         let isActive = false;
@@ -37,8 +37,8 @@ $( document ).ready(function() {
 
 
     //check if form has been modified
-    let tab_is_open = false;
-    let tab_to_open;
+    // let tab_is_open = false;
+    // let tab_to_open;
     $(".os-form-section").each(function(){
         let validation_field = $(this).find(".validation_field").find("input:text");
         if(validation_field.val() == "updated"){
@@ -47,10 +47,10 @@ $( document ).ready(function() {
             $(this).find("#form-section-warning").hide();
             $(this).find("#form-section-good").show();
         }else if(validation_field.length != 0){
-            if(!tab_is_open){
-                tab_is_open = true;
-                tab_to_open = $(this).find('.os-form-section-question-wrapper');
-            }
+            // if(!tab_is_open){
+            //     tab_is_open = true;
+            //     tab_to_open = $(this).find('.os-form-section-question-wrapper');
+            // }
             $(this).removeClass("good");
             $(this).addClass("warning");
             $(this).find("#form-section-warning").show();
@@ -58,9 +58,9 @@ $( document ).ready(function() {
         }
     });
     //open tab on load
-    if(tab_is_open){
-        openFormSection(tab_to_open);
-    }
+    // if(tab_is_open){
+    //     openFormSection(tab_to_open);
+    // }
 
 
     //toggle validation field if section is submitted on front end

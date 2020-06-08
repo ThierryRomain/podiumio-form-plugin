@@ -13,13 +13,13 @@
   	wp_head();
 ?>
 	<style>
-		.os-form-section-sidebar{
+		/* .os-form-section-sidebar{
 			background: #fafafb;
 		    border-right: #ebebeb solid 1px;
 			width: 32%;
 		    margin-right: 20px;
 		    padding: 15px;
-		}
+		} */
 		.os-frontend-form-flex-container {
 		    display: -ms-flexbox;
 		    display: -webkit-flex;
@@ -127,11 +127,11 @@
 			    -ms-flex-wrap: wrap;
 			    flex-wrap: wrap;
 			}
-			.os-form-section-sidebar{
+			/* .os-form-section-sidebar{
 				width:100%;
 				border-right:none;
 				margin-right:0px;
-			}
+			} */
 		}
 	</style>
 </head>
@@ -151,10 +151,10 @@
 					<?php the_field('before_form'); ?>
 				</div>
 				<div class="os-frontend-form-flex-container">
-					<div class="os-form-section-sidebar">
+					<!-- <div class="os-form-section-sidebar">
 						<h3>Form navigation</h3>
 						<div id="frontend-form-menu"></div>
-					</div>
+					</div> -->
 					<div style="width:100%">
 						<?php the_content(); ?>
 					</div>
