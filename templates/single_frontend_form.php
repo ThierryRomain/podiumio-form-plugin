@@ -42,6 +42,15 @@
 			min-height: 60vh;
 		}
 
+        .acf-repeater .acf-row-handle.order+td{
+            border-bottom: 2px solid #fdaa40;
+        }
+
+        .acf-repeater .acf-row-handle.order{
+            font-weight:600;
+            color:black;
+        }
+
 		.acf-actions .acf-button.button-primary {
 			border: 2px solid #3797a4;
 			background-color: transparent;
