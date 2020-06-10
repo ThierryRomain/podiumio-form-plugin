@@ -42,13 +42,17 @@ $img = get_field('img');
                 <?php if($img): ?>
                     <img src="<?php echo $img; ?>" class="os-form-section-preview" />
                 <?php endif; ?>
-                <div style="margin-top:20px;margin-bottom:20px;"><?php echo $preForm ?></div>
+                <?php if($preForm): ?>
+                    <div style="margin-top:20px;margin-bottom:20px;"><?php echo $preForm ?></div>
+                <?php endif; ?>
                 <?php
                 if(!is_admin()){
                     echo do_shortcode($shortcode);
                 }
                 ?>
-                <div style="margin-top:20px;margin-bottom:20px;"><?php echo $postForm ?></div>
+                <?php if($postForm): ?>
+                    <div style="margin-top:20px;margin-bottom:20px;"><?php echo $postForm ?></div>
+                <?php endif; ?>
                 </div>
         </div>
     </div>
