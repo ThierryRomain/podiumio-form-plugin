@@ -106,4 +106,7 @@ $( document ).ready(function() {
         });
         return false;
     }
+
+    //deactivate pre loader
+    $("#form-preloader").fadeOut(400);
 });
