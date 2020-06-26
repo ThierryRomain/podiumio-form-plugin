@@ -112,6 +112,21 @@ function my_plugin_templates( $template ) {
     return $template;
 }
 
+add_filter( 'acf/fields/wysiwyg/toolbars' , 'my_toolbars'  );
+function my_toolbars( $toolbars )
+{
+
+	// Edit the "Full" toolbar and remove 'code'
+	// - delet from array code from http://stackoverflow.com/questions/7225070/php-array-delete-by-value-not-key
+	if( ($key = array_search('fullscreen' , $toolbars['Basic' ][1])) !== false )
+	{
+	    unset( $toolbars['Basic' ][1][$key] );
+	}
+
+	// return $toolbars - IMPORTANT!
+	return $toolbars;
+}
+
 /**
  * Include obligatory files.
  */
