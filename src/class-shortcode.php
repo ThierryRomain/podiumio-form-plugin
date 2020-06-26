@@ -112,6 +112,8 @@ class Shortcode {
 					'post_status'	=> $args['post_status'],
 				],
 				'field_groups'      => $render,
+				'submit_value' => __("Save Content", 'acf'),
+				'updated_message' => __("Content Saved", 'acf'),
 			]
 		);
 	}
