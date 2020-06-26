@@ -232,7 +232,7 @@
             </div>
         </div>
 	<?php wp_body_open(); ?>
-		<div id="page" class="site w-container">
+		<div id="page" class="site">
 		<!-- end header -->
 
 		<!-- start page -->
@@ -241,19 +241,23 @@
 			while ( have_posts() ) :
 				the_post();
 				?>
-				<div style="width:100%;text-align:center;padding-top:30px;padding-bottom:30px;">
-					<h1><?php the_title(); ?></h1>
-					<?php the_field('before_form'); ?>
-				</div>
-				<div class="os-frontend-form-flex-container">
-					<!-- <div class="os-form-section-sidebar">
-						<h3>Form navigation</h3>
-						<div id="frontend-form-menu"></div>
-					</div> -->
-					<div style="width:100%">
-						<?php the_content(); ?>
-					</div>
-				</div>
+                <div id="frontend-form-header" style="background-color:#669efc;padding-top:30px;padding-bottom:30px;color:white;text-align:center;">
+                    <div class="w-container">
+                        <h1><?php the_title(); ?></h1>
+                        <?php the_field('frontend_form_hero_desc'); ?>
+                    </div>
+                </div>
+                <div class="w-container">
+    				<div class="os-frontend-form-flex-container">
+    					<!-- <div class="os-form-section-sidebar">
+    						<h3>Form navigation</h3>
+    						<div id="frontend-form-menu"></div>
+    					</div> -->
+    					<div style="width:100%">
+    						<?php the_content(); ?>
+    					</div>
+    				</div>
+                </div>
 				<?php
 			endwhile;
 		endif;
